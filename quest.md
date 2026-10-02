@@ -67,7 +67,7 @@ E. Die Konfiguration zeigt, dass VLAN 20 das IP-Subnetz `192.168.20.0/24` verwen
 
 Ein Administrator sagt:
 
-> „Das Interface hat eine IP-Adresse, daher kann darüber geroutet werden .“
+> „Das Interface des Switch hat eine IP-Adresse, daher kann darüber geroutet werden .“
 
 CLI Ausgabe:
 
@@ -118,7 +118,7 @@ D. LLDP ist ein Layer-3-Routing-Protokoll.
 
 ## Frage 5 — ARP
 
-Ein Arbeitsplatzrechner muss mit folgendem Host kommunizieren:
+Ein APC muss mit folgendem Host kommunizieren:
 
 ```
 10.20.30.50
@@ -266,9 +266,9 @@ F. BGP-Routing-Tabellen
 
 Ein Unternehmen behauptet:
 
-> „Unser Netzwerk ist segmentiert, weil Benutzer, Server und Management in separaten VLANs liegen.“
+> „Unser Netzwerk ist segmentiert und sicher weil allle Systeme in separaten VLANs liegen.“
 
-Sie stellst folgende Kommunikation fest:
+Sie stellen folgende Kommunikation fest:
 
 ```
 User VLAN       → Server VLAN       ALLOW
@@ -278,7 +278,7 @@ IoT VLAN        → Server VLAN       ALLOW
 Management VLAN → All VLANs         ALLOW
 ```
 
-Welche Aussagen sind angemessen?
+Welche Aussagen sind korrekt?
 
 A. Die Trennung durch VLANs allein stellt keine effektive Security Boundary dar.
 
@@ -316,22 +316,21 @@ E. Das Passwort jedes Domain Users wird lokal auf jedem Domain-joined APC gespei
 
 
 
-Ein Administrator sagt:
-
-„Dieser Computer ist in die Domäne eingebunden, daher wird das lokale Administrator-Konto über das Active Directory gesteuert.“
+Ein Administrator sagt: „Dieser Computer ist in die Domäne eingebunden, daher wird das lokale Administrator-Konto über das Active Directory gesteuert.“
 
 Sie überprüfen den Computer und stellen fest:
-```
-PS C:\Users\Bellisarus> systeminfo | Where-object {$_ -like "Dom*"}
+
+```powershell
+PS C:\Users\Bellisarius> systeminfo | Where-object {$_ -like "Dom*"}
 
 Domain:   WORKGROUP
 
-PS C:\Users\Bellisarus> Get-LocalUser
+PS C:\Users\Bellisarius> Get-LocalUser
 
 Name                Enabled Description
 ----                ------- -----------
 Administrator       True   Vordefiniertes Konto für die Verwaltung des Computers bzw. der Domäne
-Bellisarus          True
+Bellisarius          True
 ```
 
 Welche Aussagen sind  korrekt?
@@ -420,7 +419,7 @@ D. Reihenfolge und Vererbung bei der Group-Policy-Verarbeitung können die resul
 ## Frage 17 — Windows Security Logging
 
 
-Ein Administrator sagt:  
+Ein Administrator behauptet:  
 „Ich habe Credential Guard per Gruppenrichtlinie auf allen Windows 11 Clients erzwungen. Damit können unter keinen Umständen mehr Anmeldedaten ausgelesen werden.“
 
 Sie führen auf einem dieser Clients ein Sicherheits-Audit durch und rufen die Systeminformationen auf:
