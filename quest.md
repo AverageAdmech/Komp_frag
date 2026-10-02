@@ -492,14 +492,12 @@ E. Eine Anwendung kann LDAP verwenden, um AD abzufragen, ohne dass bei dieser ko
 
 F. OpenLDAP stellt Directory Services bereit, bildet aber nicht automatisch das vollständige AD-Domain-Service-Ökosystem ab.
 
----
-## Frage (19)
 
 ---
 
 ## Frage 20 — Privileged Deployment Architecture
 
-Sie stellst folgende Struktur fest:
+Sie stellen folgende Struktur fest:
 
 ```
 Domain Admins
@@ -532,12 +530,13 @@ F. Das Audit sollte sowohl die AD-Berechtigungen als auch das Security Model der
 # Teil III — Linux
 
 
-## Frage 20
+## Frage 21
 
 Sie führen folgenden Befehl aus:
 
+```
 chmod 644 /etc/example.conf
-
+```
 Welche Aussagen sind akorrekt?
 
 A. Die Datei gehört jetzt root.
@@ -602,7 +601,7 @@ Welche Aussagen zu den vorgeschlagenen Diagnosebefehlen sind **korrekt**?
 
 - **C Der Aufruf von `ip addr` liest die Link-Layer- und Network-Layer-Konfiguration direkt aus dem `/proc`-Dateisystem aus und erzwingt einen hardwareseitigen Link-Status-Check (NIC-MII-Probe).
   
-- **D** `chmod` kann über das Setzen des SUID-Bits auf Netzwerk-Binärdateien wie `tcpdump` dazu genutzt werden, um Raw-Socket-Capturing für unprivilegierte Benutzer permanent freizuschalten, ohne Linux Capabilities nutzen zu müssen.
+- **D** `chmod` kann über das Setzen des SUID-Bits auf Netzwerk-Binärdateien wie `tcpdump` dazu genutzt werden, um Raw-Socket-Capturing für unprivilegierte Benutzer permanent freizuschalten.
   
 - **E** `resolvectl status` liefert zuverlässige Informationen über die aktuell vom systemd-resolved-Dienst genutzten Upstream-DNS-Server pro Interface was statisch in der Datei `/etc/hosts` definiert ist.
 
@@ -630,10 +629,11 @@ Sie finden folgenden CLI output:
 
 ```
 /etc/ssh/sshd_config
-
+[...]
 PermitRootLogin yes
 PasswordAuthentication yes
 Port 22
+[...]
 ```
 
 Welche Aussagen sind angemessen?
@@ -642,7 +642,7 @@ A. Root Login ist durch diese Einstellung erlaubt, sofern keine andere anwendbar
 
 B. Password Authentication ist durch diese Einstellung erlaubt, sofern keine andere anwendbare Konfiguration dies überschreibt.
 
-C. Port 22 bedeutet, dass SSH-Datenverkehr unverschlüsselt ist.
+C. Port 22 bedeutet, dass der SSH-Datenverkehr unverschlüsselt ist.
 
 D. Die Konfiguration sollte mit den Anforderungen der Organisation an administrativen Zugriff verglichen werden.
 
@@ -719,13 +719,11 @@ User=root
 ExecStart=/opt/audit/collector
 ```
 
-und:
-
 ```
 -rwxrwxr-x root auditors /opt/audit/collector
 ```
 
-Welche Aussagen sind angemessen?
+Welche Aussagen sind korrekt?
 
 A. Der Service führt den Collector als Root aus.
 
@@ -741,8 +739,7 @@ E. Der Zusammenhang zwischen Service-Privilegien und Filesystem-Rechten sollte u
 
 ## Frage 30 — Integrierte Linux Security Architecture
 
-Sie finden:
-
+Folgender CLI Output ist gegeben: 
 ```
 backup.service
 
@@ -751,13 +748,9 @@ User=root
 ExecStart=/opt/backup/backup.sh
 ```
 
-Berechtigungen:
-
 ```
 -rwxrwxr-x root backupops /opt/backup/backup.sh
 ```
-
-Group:
 
 ```
 backupops:
@@ -765,8 +758,6 @@ backupops:
     bob
     charlie
 ```
-
-Außerdem:
 
 ```
 sudo -l -U alice
