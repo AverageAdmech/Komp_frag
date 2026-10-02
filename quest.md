@@ -1,15 +1,15 @@
 ## Hinweise
 
-Dieser Test enthält 30 Komplexe multiple-choice  Fragen:
+Dieser Test enthält 30 komplexe Multiple-Choice-Fragen:
 
 - 10 — Networking
 - 10 — Windows / Active Directory
-- 10 — Linux, 
+- 10 — Linux
 
-- Wähle **alle Antworten aus, die Sie für korrekt halten**.
-- Es kann **keine, eine oder mehrere korrekte Antworten** sein.
-- Beurteile ausschließlich die Informationen, die in der jeweiligen Aufgabe gegeben werden.
-- Bei Konfigurationen oder Command-Outputs: Achten sie auf die Unterschiede zwischen dem, was die vorliegenden Daten **belegen**, und dem, was **vermutet** wird.
+- Wähle alle Antworten aus, die Sie für korrekt halten.
+- Es kann keine, eine oder mehrere korrekte Antworten geben.
+- Beurteilen Sie ausschließlich die Informationen, die in der jeweiligen Aufgabe gegeben werden.
+- Bei Konfigurationen oder Command-Outputs: Achten Sie auf die Unterschiede zwischen dem, was die vorliegenden Daten belegen, und dem, was vermutet wird.
 
 ---
 
@@ -19,7 +19,7 @@ Dieser Test enthält 30 Komplexe multiple-choice  Fragen:
 
 Ein APC hat folgende Konfiguration:
 
-```
+```text
 IP-Adresse:       192.168.10.25
 Subnetzmaske:     255.255.255.0
 Default Gateway:  192.168.10.1
@@ -43,7 +43,7 @@ E. Das Subnetz enthält exakt 256 nutzbare Host-Adressen.
 
 Ein Switch-Port ist folgendermaßen konfiguriert:
 
-```
+```text
 interface GigabitEthernet1/0/10
  switchport mode access
  switchport access vlan 20
@@ -67,11 +67,11 @@ E. Die Konfiguration zeigt, dass VLAN 20 das IP-Subnetz `192.168.20.0/24` verwen
 
 Ein Administrator sagt:
 
-> „Das Interface des Switch hat eine IP-Adresse, daher kann darüber geroutet werden .“
+> „Das Interface des Switch hat eine IP-Adresse, daher kann darüber geroutet werden.“
 
-CLI Ausgabe:
+CLI-Ausgabe:
 
-```
+```text
 interface GigabitEthernet1/0/24
  ip address 10.10.20.1 255.255.255.0
  shutdown
@@ -93,17 +93,16 @@ E. Die Konfiguration zeigt, dass das physische Kabel angeschlossen ist.
 
 ## Frage 4 — CDP vs. LLDP
 
-Sie auditieren ein Netzwerk mit Geräten von verschiedener Herstellern.
-Die Dokumentationen weisen Zwei ähnliche Kommandos auf.
-Ein Kamerad Zeigt ihnen folgende Zeilen.
+Sie auditieren ein Netzwerk mit Geräten verschiedener Hersteller. Die Dokumentation weist zwei ähnliche Kommandos auf.
 
-```
+Ein Kollege zeigt Ihnen folgende Zeilen:
+
+```text
 show cdp neighbors
 show lldp neighbors
 ```
 
 Welche Aussagen sind technisch korrekt?
-
 
 A. CDP ist ein herstellerneutrales, standardisiertes Neighbor-Discovery-Protokoll.
 
@@ -113,36 +112,35 @@ C. Die von CDP und LLDP bereitgestellten Informationen können sich abhängig vo
 
 D. LLDP ist ein Layer-3-Routing-Protokoll.
 
-
 ---
 
 ## Frage 5 — ARP
 
 Ein APC muss mit folgendem Host kommunizieren:
 
-```
+```text
 10.20.30.50
 ```
 
-Sie lassen sie die laufenden Konfiguration anzeigen:
+Sie lassen sich die laufenden Konfigurationen anzeigen:
 
 ```bash
 └─$ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00                                   
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host noprefixroute 
+    inet6 ::1/128 scope host noprefixroute
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether 00:0c:29:a8:9b:a5 brd ff:ff:ff:ff:ff:ff                                      
-    inet 10.20.10.25/24 brd 10.20.10.255 scope global eth0      
+    link/ether 00:0c:29:a8:9b:a5 brd ff:ff:ff:ff:ff:ff
+    inet 10.20.10.25/24 brd 10.20.10.255 scope global eth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::4d09:36c3:72b3:590a/64 scope link noprefixroute 
+    inet6 fe80::4d09:36c3:72b3:590a/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 └─$ ip r
-default via 10.20.10.1 dev eth0 proto static metric 100 10.20.10.0/24 dev eth0 proto kernel scope link src 10.20.10.25 metric 100
-
+default via 10.20.10.1 dev eth0 proto static metric 100
+10.20.10.0/24 dev eth0 proto kernel scope link src 10.20.10.25 metric 100
 ```
 
 Welche Aussagen sind korrekt?
@@ -161,9 +159,9 @@ E. Um das Zielnetzwerk zu erreichen, wird Routing benötigt.
 
 ## Frage 6 — VLAN Trunk
 
-Sie lesen folgende CLI Ausgabe an einem Switch:
+Sie lesen folgende CLI-Ausgabe an einem Switch:
 
-```
+```text
 interface Gi1/0/48
  description Uplink-to-SW02
  switchport mode trunk
@@ -188,7 +186,7 @@ E. Das Interface ist als Trunk konfiguriert.
 
 Ein Router enthält folgende Einträge:
 
-```
+```text
 10.0.0.0/8       via 192.168.1.1
 10.20.0.0/16     via 192.168.2.1
 10.20.30.0/24    via 192.168.3.1
@@ -197,7 +195,7 @@ Ein Router enthält folgende Einträge:
 
 Ein Paket soll an folgendes Ziel gesendet werden:
 
-```
+```text
 10.20.30.55
 ```
 
@@ -219,7 +217,7 @@ E. Das Ziel passt auf alle drei angezeigten privaten Netzwerk-Routen.
 
 Sie finden:
 
-```
+```text
 ip access-list extended SERVER-IN
  permit tcp 10.10.0.0 0.0.255.255 any eq 443
  permit tcp 10.10.0.0 0.0.255.255 any eq 22
@@ -236,7 +234,7 @@ C. UDP/53 aus `10.10.0.0/16` ist erlaubt.
 
 D. IP-Datenverkehr, der die letzte Regel erreicht, wird abgelehnt.
 
-E. TCP/22 aus `10.10.0.0/16` ist nicht erlaubt. 
+E. TCP/22 aus `10.10.0.0/16` ist nicht erlaubt.
 
 F. Der gesamte Datenverkehr aus `10.10.0.0/16` ist erlaubt.
 
@@ -244,7 +242,7 @@ F. Der gesamte Datenverkehr aus `10.10.0.0/16` ist erlaubt.
 
 ## Frage 9 — Neighbor Discovery und Topologie
 
-Sie untersuchst eine Umgebung mit mehreren Herstellern.
+Sie untersuchen eine Umgebung mit mehreren Herstellern.
 
 Welche Informationsquellen können bei der Rekonstruktion der Netzwerktopologie hilfreich sein?
 
@@ -252,9 +250,9 @@ A. CDP
 
 B. LLDP
 
-C. MAC-Address-Tables
+C. MAC-Address-Tabellen
 
-D. ARP-Tables
+D. ARP-Tabellen
 
 E. OSPF-Nachbarschaftsinformationen
 
@@ -266,11 +264,11 @@ F. BGP-Routing-Tabellen
 
 Ein Unternehmen behauptet:
 
-> „Unser Netzwerk ist segmentiert und sicher weil allle Systeme in separaten VLANs liegen.“
+> „Unser Netzwerk ist segmentiert und sicher, weil alle Systeme in separaten VLANs liegen.“
 
 Sie stellen folgende Kommunikation fest:
 
-```
+```text
 User VLAN       → Server VLAN       ALLOW
 User VLAN       → Management VLAN   SSH/HTTPS
 Server VLAN     → User VLAN         ALLOW
@@ -314,9 +312,7 @@ E. Das Passwort jedes Domain Users wird lokal auf jedem Domain-joined APC gespei
 
 ## Frage 12 — PowerShell AD Query
 
-
-
-Ein Administrator sagt: „Dieser Computer ist in die Domäne eingebunden, daher wird das lokale Administrator-Konto über das Active Directory gesteuert.“
+Ein Administrator sagt: „Dieser Computer ist in die Domäne eingebunden; daher wird das lokale Administrator-Konto über das Active Directory gesteuert.“
 
 Sie überprüfen den Computer und stellen fest:
 
@@ -329,11 +325,11 @@ PS C:\Users\Bellisarius> Get-LocalUser
 
 Name                Enabled Description
 ----                ------- -----------
-Administrator       True   Vordefiniertes Konto für die Verwaltung des Computers bzw. der Domäne
-Bellisarius          True
+Administrator       True    Vordefiniertes Konto für die Verwaltung des Computers bzw. der Domäne
+Bellisarius         True
 ```
 
-Welche Aussagen sind  korrekt?
+Welche Aussagen sind korrekt?
 
 A. Das Konto ist ein Active Directory-Konto.
 
@@ -345,15 +341,13 @@ D. Domänen-Gruppenrichtlinien können das lokale Konto nicht beeinflussen.
 
 E. Das Konto muss sich gegenüber einem Domain Controller authentifizieren.
 
-
-
 ---
 
 ## Frage 13 — Windows Services
 
 Sie führen folgenden Befehl in PowerShell aus:
 
-```
+```powershell
 Get-Service |
     Where-Object {$_.Status -eq "Running"}
 ```
@@ -368,7 +362,6 @@ C. Der Befehl kann zur Erstellung eines Service-Inventars verwendet werden.
 
 D. Der Befehl verändert die Service-Konfiguration.
 
-
 ---
 
 ## Frage 14 — Windows Firewall
@@ -377,7 +370,7 @@ Welche Aussagen sind korrekt?
 
 A. Die Windows Defender Firewall kann Netzwerkverkehr anhand von Eigenschaften wie Richtung, Protokoll und Port kontrollieren.
 
-B. Eine Perimeter-Firewall sorgt dafür das eine Host-basierte Firewall-Kontrollen obsolet werden.
+B. Eine Perimeter-Firewall sorgt dafür, dass host-basierte Firewall-Kontrollen obsolet werden.
 
 C. Die Existenz einer Firewall-Regel beweist nicht, dass diese Regel aktiviert ist.
 
@@ -395,9 +388,9 @@ B. Ein Ticket Granting Ticket kann verwendet werden, um Service Tickets zu erhal
 
 C. Eine korrekte Zeitsynchronisation ist für Kerberos wichtig.
 
-D. Kerberos verhindert, dass NTLM-downgrade Angriffe in einer Active-Directory-Umgebung verwendet werden kann.
+D. Kerberos verhindert, dass NTLM-Downgrade-Angriffe in einer Active-Directory-Umgebung eingesetzt werden können.
 
-E. Service Principal Names sind für die Identifikation von Kerberos-Services nicht relevant.
+E. Service Principal Names sind für die Identifikation von Kerberos-Services irrelevant.
 
 ---
 
@@ -405,41 +398,39 @@ E. Service Principal Names sind für die Identifikation von Kerberos-Services ni
 
 Welche Aussagen sind korrekt?
 
-A. Group Policy Objects können verwendet werden, um Windows Security Settings zentral zu konfigurieren.
+A. Group Policy Objects können verwendet werden, um Windows-Sicherheitssettings zentral zu konfigurieren.
 
 B. Mehrere GPOs können die abschließende resultierende Konfiguration beeinflussen.
 
-C. Die Verknüpfung mit einer GPOs beweist, dass darin enthaltene Einstellungen aktiv sind.
+C. Die Verknüpfung mit einer GPO beweist, dass darin enthaltene Einstellungen aktiv sind.
 
 D. Reihenfolge und Vererbung bei der Group-Policy-Verarbeitung können die resultierende Konfiguration beeinflussen.
-
 
 ---
 
 ## Frage 17 — Windows Security Logging
 
+Ein Administrator behauptet:
 
-Ein Administrator behauptet:  
-„Ich habe Credential Guard per Gruppenrichtlinie auf allen Windows 11 Clients erzwungen. Damit können unter keinen Umständen mehr Anmeldedaten ausgelesen werden.“
+> „Ich habe Credential Guard per Gruppenrichtlinie auf allen Windows 11 Clients erzwungen. Damit können unter keinen Umständen mehr Anmeldedaten ausgelesen werden.“
 
 Sie führen auf einem dieser Clients ein Sicherheits-Audit durch und rufen die Systeminformationen auf:
 
-text
-
-```
+```powershell
 PS C:\> (Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\DeviceGuard).SecurityServicesRunning
 
 1
 ```
 
-Welche Aussagen sind **korrekt**?
+Welche Aussagen sind korrekt?
 
-- **A.** Credential Guard läuft ordnungsgemäß und schützt den LSASS-Prozess vollumfänglich.
-- **B.** Die Richtlinie greift nicht oder die Hardware liefert keine Untersützung, wodurch LSASS weiterhin anfällig für Credential Dumping ist. 
-- **C.** Wert 1 zeigt an, dass Credential Guard im „Legacy-Modus“ läuft, welcher den gleichen Schutz bietet.
-- **D.** Der Befehl zeigt nur den Status der Windows Firewall an und hat keine Aussagekraft über LSASS.
+A. Credential Guard läuft ordnungsgemäß und schützt den LSASS-Prozess vollumfänglich.
 
+B. Die Richtlinie greift nicht oder die Hardware liefert keine Unterstützung, wodurch LSASS weiterhin anfällig für Credential Dumping ist.
 
+C. Wert 1 zeigt an, dass Credential Guard im „Legacy-Modus“ läuft, welcher den gleichen Schutz bietet.
+
+D. Der Befehl zeigt nur den Status der Windows Firewall an und hat keine Aussagekraft über LSASS.
 
 ---
 
@@ -447,7 +438,7 @@ Welche Aussagen sind **korrekt**?
 
 Sie führen aus:
 
-```
+```powershell
 Get-SmbServerConfiguration |
     Select EnableSMB1Protocol,
            EnableSecuritySignature,
@@ -456,7 +447,7 @@ Get-SmbServerConfiguration |
 
 Das Ergebnis lautet:
 
-```
+```text
 EnableSMB1Protocol       : True
 EnableSecuritySignature  : False
 RequireSecuritySignature : False
@@ -482,7 +473,7 @@ Welche Aussagen sind korrekt?
 
 A. Active Directory Domain Services stellt LDAP-Schnittstellen bereit.
 
-B. LDAP ist die vollständige Active-Directory-Authentication-Implementierung von Microsoft .
+B. LDAP ist die vollständige Active-Directory-Authentication-Implementierung von Microsoft.
 
 C. Active Directory verwendet mehrere Protokolle und Services, darunter LDAP, Kerberos und DNS.
 
@@ -492,14 +483,13 @@ E. Eine Anwendung kann LDAP verwenden, um AD abzufragen, ohne dass bei dieser ko
 
 F. OpenLDAP stellt Directory Services bereit, bildet aber nicht automatisch das vollständige AD-Domain-Service-Ökosystem ab.
 
-
 ---
 
 ## Frage 20 — Privileged Deployment Architecture
 
 Sie stellen folgende Struktur fest:
 
-```
+```text
 Domain Admins
     |
     +-- svc_deploy
@@ -529,15 +519,15 @@ F. Das Audit sollte sowohl die AD-Berechtigungen als auch das Security Model der
 
 # Teil III — Linux
 
-
-## Frage 21
+## Frage 21 — chmod und Dateirechte
 
 Sie führen folgenden Befehl aus:
 
-```
+```bash
 chmod 644 /etc/example.conf
 ```
-Welche Aussagen sind akorrekt?
+
+Welche Aussagen sind korrekt?
 
 A. Die Datei gehört jetzt root.
 
@@ -549,13 +539,13 @@ D. Der Befehl ändert die Gruppe der Datei.
 
 E. Der Befehl ändert den Inhalt der Datei.
 
+---
 
-
-## Frage 21 — File Permissions
+## Frage 22 — File Permissions
 
 Gegeben ist:
 
-```
+```text
 -rwxr-x---
 ```
 
@@ -565,7 +555,7 @@ A. Der Owner besitzt Read-, Write- und Execute-Rechte.
 
 B. Die Group besitzt Read- und Execute-Rechte.
 
-C. Andere Benutzer besitzen gemäß diesen Mode Bits keine Berechtigungen.
+C. Andere Benutzer besitzen gemäß diesen Mode-Bits keine Berechtigungen.
 
 D. Mitglieder der Group können die Datei verändern.
 
@@ -573,7 +563,7 @@ E. Der Owner kann die Datei ausführen.
 
 ---
 
-## Frage 22 — Process Enumeration
+## Frage 23 — Process Enumeration
 
 Welche Commands können nützliche Informationen über laufende Prozesse liefern?
 
@@ -589,29 +579,29 @@ E. `systemctl`
 
 ---
 
-## Frage 23 — Linux Networking
+## Frage 24 — Linux Networking
 
-Während der Analyse eines potenziellen Datenabflusses (Data Exfiltration) auf einem Linux-Applikationsserver müssen Sie aktive Netzwerkverbindungen im Userspace mit den Sockets im Kernel abgleichen sowie Routing-Entscheidungen ohne aktiven Netzwerkverkehr validieren.
+Während der Analyse eines potenziellen Datenabflusses (Data Exfiltration) auf einem Linux-Applikationsserver müssen Sie aktive Netzwerkverbindungen im Userspace mit den Sockets im Kernel abgleichen.
 
-Welche Aussagen zu den vorgeschlagenen Diagnosebefehlen sind **korrekt**? 
+Welche Aussagen zu den vorgeschlagenen Diagnosebefehlen sind korrekt?
 
-- **A.** Der Befehl `ip route get <Ziel-IP>` ermittelt die exakte Routing-Entscheidung des Kernels für ein Paket, ohne dass dabei tatsächlicher Netzwerkverkehr generiert wird.
+A. Der Befehl `ip route get <Ziel-IP>` ermittelt die exakte Routing-Entscheidung des Kernels für ein Paket, ohne dass dabei tatsächlicher Netzwerkverkehr generiert wird.
 
-- **B.** Mit `ss -lntup` lassen sich alle lauschenden TCP/UDP-Sockets inklusive der zugehörigen Prozess-IDs (PIDs) und Programmnamen anzeigen. Dies schlägt jedoch fehl, wenn der Befehl ohne `root`-Rechte (oder entsprechende Capabilities) ausgeführt wird.
+B. Mit `ss -lntup` lassen sich alle lauschenden TCP/UDP-Sockets inklusive der zugehörigen Prozess-IDs (PIDs) und Programmnamen anzeigen. Dies funktioniert jedoch nur mit entsprechenden Berechtigungen.
 
-- **C Der Aufruf von `ip addr` liest die Link-Layer- und Network-Layer-Konfiguration direkt aus dem `/proc`-Dateisystem aus und erzwingt einen hardwareseitigen Link-Status-Check (NIC-MII-Probe).
-  
-- **D** `chmod` kann über das Setzen des SUID-Bits auf Netzwerk-Binärdateien wie `tcpdump` dazu genutzt werden, um Raw-Socket-Capturing für unprivilegierte Benutzer permanent freizuschalten.
-  
-- **E** `resolvectl status` liefert zuverlässige Informationen über die aktuell vom systemd-resolved-Dienst genutzten Upstream-DNS-Server pro Interface was statisch in der Datei `/etc/hosts` definiert ist.
+C. Der Aufruf von `ip addr` liest die Link-Layer- und Network-Layer-Konfiguration direkt aus dem `/proc`-Dateisystem aus und erzwingt keinen Hardware-Link-Status-Check.
+
+D. `chmod` kann über das Setzen des SUID-Bits auf Netzwerk-Binärdateien wie `tcpdump` dazu genutzt werden, um Raw-Socket-Capturing für unprivilegierte Benutzer permanent freizuschalten.
+
+E. `resolvectl status` liefert Informationen über die aktuell vom systemd-resolved-Dienst genutzten Upstream-DNS-Server pro Interface.
 
 ---
 
-## Frage 24 — systemd
+## Frage 25 — systemd
 
 Welche Aussagen sind korrekt?
 
-A. `systemctl list-unit-files --state=enabled` kann aktivierte systemd Units anzeigen.
+A. `systemctl list-unit-files --state=enabled` kann aktivierte systemd-Units anzeigen.
 
 B. `systemctl --type=service --state=running` kann aktuell laufende Services anzeigen.
 
@@ -619,15 +609,15 @@ C. `enabled` und `running` sind grundsätzlich dasselbe.
 
 D. Ein Service kann laufen, ohne für den automatischen Start aktiviert zu sein.
 
-E. Diese Commands können nützliche Informationen für ein Securityaudit liefern.
+E. Diese Commands können nützliche Informationen für ein Security-Audit liefern.
 
 ---
 
-## Frage 25 — SSH Configuration
+## Frage 26 — SSH Configuration
 
-Sie finden folgenden CLI output:
+Sie finden folgenden CLI-Output:
 
-```
+```text
 /etc/ssh/sshd_config
 [...]
 PermitRootLogin yes
@@ -638,7 +628,7 @@ Port 22
 
 Welche Aussagen sind angemessen?
 
-A. Root Login ist durch diese Einstellung erlaubt, sofern keine andere anwendbare Konfiguration dies überschreibt.
+A. Root-Login ist durch diese Einstellung erlaubt, sofern keine andere anwendbare Konfiguration dies überschreibt.
 
 B. Password Authentication ist durch diese Einstellung erlaubt, sofern keine andere anwendbare Konfiguration dies überschreibt.
 
@@ -650,7 +640,7 @@ E. Die Konfiguration allein beweist, dass SSH aus dem Internet erreichbar ist.
 
 ---
 
-## Frage 26 — Linux Logging
+## Frage 27 — Linux Logging
 
 Welche Quellen können relevante Security-Evidenz auf einem Linux-System liefern?
 
@@ -662,56 +652,54 @@ C. `/var/log/secure` auf Systemen, die diese Logging-Konfiguration verwenden
 
 D. `auditd`
 
-E. `/etc/passwd` als primäres Log für Authentication Events
+E. `/etc/passwd` als primäres Log für Authentication-Events
 
 ---
 
-## Frage 27 — Package Management
+## Frage 28 — Package Management
 
-Ein Linux-Server (`Ubuntu`) nutzt ein internes Repository für die Firmen-Software `corp-validator` (v2.1.0) sowie ein externes Drittanbieter-Repository. Es ist kein `Apt Pinning` konfiguriert. Ein Angreifer lädt ein Kompromitiertes Paket mit demselben Namen `corp-validator` und der Version `9.9.9` in das externe Repository hoch.
+Ein Linux-Server (`Ubuntu`) nutzt ein internes Repository für die Firmen-Software `corp-validator` (v2.1.0) sowie ein externes Drittanbieter-Repository. Es ist kein Apt-Pinning konfiguriert.
 
-Welche Aussagen sind **korrekt**? 
+Welche Aussagen sind korrekt?
 
-**A.** Der Paketmanager ignoriert das externe Paket, da das interne Repo in der `sources.list` weiter oben steht.
+A. Der Paketmanager ignoriert das externe Paket, da das interne Repository in der `sources.list` weiter oben steht.
 
-**B** Das Kompromitiertes Paket kann bereits während der Installation Schadcode als `root` ausführen (z. B. via `postinst`-Skript).
+B. Ein kompromittiertes Paket kann bereits während der Installation Schadcode als `root` ausführen, zum Beispiel über ein `postinst`-Skript.
 
-**C** Um das Risiko zu beheben, muss ein Apt-Pinning mit einer Priorität über 1000 (`Pin-Priority: 1001`) für das interne Repo eingerichtet werden.
+C. Um das Risiko zu beheben, muss ein Apt-Pinning mit einer Priorität über 1000 (`Pin-Priority: 1001`) für das interne Repository eingerichtet werden.
 
-**E.** GPG-Schlüssel-Signaturen (`Signed-By`) verhindern diesen Angriff automatisch, wenn beide Repositories gültig signiert sind.
+D. Das externe Repository kann bei ungeprüfter Nutzung ein Sicherheitsrisiko darstellen.
 
-
+E. GPG-Schlüssel-Signaturen (`Signed-By`) verhindern dieses Angriffsszenario automatisch, wenn beide Repositories gültig signiert sind.
 
 ---
 
-## Frage 28 — Linux Capabilities
+## Frage 29 — Linux Capabilities
 
 Ein Scanner meldet:
 
-```
+```text
 /usr/bin/custom-tool
 cap_net_raw+ep
 ```
 
 Welche Aussagen sind korrekt?
 
-
 A. `cap_net_raw` steht mit Operationen in Zusammenhang, die Raw-/Packet-Networking betreffen.
 
 B. Linux Capabilities können bestimmte Privilegien gewähren, ohne sämtliche Root-Privilegien zu vergeben.
 
-C. Das Vorhandensein dieser Capability beweist , dass die Binary verwundbar ist.
+C. Das Vorhandensein dieser Capability beweist, dass die Binary verwundbar ist.
 
 D. Dem Binary wurde eine Linux Capability zugewiesen.
 
-
 ---
 
-## Frage 29 — Service- und Filesystem-Zusammenhang
+## Frage 30 — Service- und Filesystem-Zusammenhang
 
-Sie finden folgenden CLI Output:
+Sie finden folgenden CLI-Output:
 
-```
+```text
 /etc/systemd/system/audit.service
 
 [Service]
@@ -719,7 +707,7 @@ User=root
 ExecStart=/opt/audit/collector
 ```
 
-```
+```text
 -rwxrwxr-x root auditors /opt/audit/collector
 ```
 
@@ -727,7 +715,7 @@ Welche Aussagen sind korrekt?
 
 A. Der Service führt den Collector als Root aus.
 
-B. Mitglieder der Group `auditors` besitzen offenbar Write-Rechte auf den Collector.
+B. Mitglieder der Gruppe `auditors` besitzen offenbar Write-Rechte auf den Collector.
 
 C. Eine Änderung des Collectors könnte sich auf Code auswirken, der durch den Root-Service ausgeführt wird.
 
@@ -737,10 +725,11 @@ E. Der Zusammenhang zwischen Service-Privilegien und Filesystem-Rechten sollte u
 
 ---
 
-## Frage 30 — Integrierte Linux Security Architecture
+## Frage 31 — Integrierte Linux Security Architecture
 
-Folgender CLI Output ist gegeben: 
-```
+Folgender CLI-Output ist gegeben:
+
+```text
 backup.service
 
 [Service]
@@ -748,18 +737,18 @@ User=root
 ExecStart=/opt/backup/backup.sh
 ```
 
-```
+```text
 -rwxrwxr-x root backupops /opt/backup/backup.sh
 ```
 
-```
+```text
 backupops:
     alice
     bob
     charlie
 ```
 
-```
+```text
 sudo -l -U alice
 
 (root) /bin/systemctl restart backup.service
@@ -767,13 +756,11 @@ sudo -l -U alice
 
 Welche Aussagen sind korrekt?
 
-
-
 A. Mitglieder der Gruppe `backupops` können das Script gemäß den angezeigten Berechtigungen verändern.
 
 B. Alice kann den als Root laufenden Service neu starten.
 
-C. Alice besitzt damit eine relevante administrative Beziehung zu einem Root-Execution-Path(`$PATH` des **Root-Benutzers**).
+C. Alice besitzt damit eine relevante administrative Beziehung zu einem Root-Execution-Path (`$PATH` des Root-Benutzers).
 
 D. Alice besitzt uneingeschränkten Root-Shell-Zugriff.
 
@@ -781,4 +768,5 @@ E. Die gesamte Konfiguration stellt eine Security Boundary dar, die untersucht w
 
 F. Das Backup-Script wird vom Service mit Root-Rechten ausgeführt.
 
+---
 
